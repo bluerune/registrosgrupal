@@ -6,18 +6,19 @@ function showAlertError() {
     document.getElementById("alert-danger").classList.add("show");
 }
     let controlador
+    let password1 = document.getElementById("password1");
+    let password2 = document.getElementById("password2");
 // Funcion que llama a todas las validaciones
 function validaciones(){
     let inputs = document.getElementsByTagName("input");
     let terminosAceptados = document.getElementById('terminos').checked;
-    let password1 = document.getElementById("password1").value;
-    let password2 = document.getElementById("password2").value;
+
     
     for (let i = 0; i < inputs.length; i++) {
         validarVacio(i);
     }
 
-    if (controlador>0 && validarContrasenias && terminosAceptados && password1.length >= 6){
+    if (controlador=0 && validarContrasenias && terminosAceptados && cantidadDecaracteres){
         showAlertSuccess();
     } else {
         showAlertError();
@@ -33,7 +34,11 @@ function validarVacio(inputs) {
 
 //Chechar que las contrseñas sean iguales
 function validarContrasenias() {
-    document.getElementById("password1").value = document.getElementById("password2").value
+    password1.value = password2.value;
+}
+
+function cantidadDecaracteres() {
+    password1.length >= 6;
 }
 
 //Accion del boton
